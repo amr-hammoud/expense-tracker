@@ -24,41 +24,43 @@ function addExpenseRecord() {
         name_input.val("")
         amount_input.val("")
     }
-    else{
-        console.log("INVALID")
-    }
 }
 
 function validate(name,amount){
     const nameregex = /^[A-Za-z\s]*$/;
     const amountregex = /^[0-9]+$/;
     let is_valid = false
+    let name_valid = false
+    let amount_valid = false
     
-    // Name Validation
+
     if (name.trim() != ""){
         if(nameregex.test(name)){
-            is_valid = true
-        }else{
-            name_input.addClass("error")
+            name_valid = true
         }
+        else
+            name_input.addClass("error")
     }
     else{
         name_input.addClass("error")
         name_error.show()
     }
-    
-    // Amount Validation
+
     if(amount.trim() != ""){
+
         if(amountregex.test(amount))
-            is_valid = true
-        
+                amount_valid = true
+        else
+            amount_invalid.show()
     }
     else{
         amount_input.addClass("error")
         amount_error.show()
     }
-    
 
+    if(name_valid && amount_valid){
+        is_valid = true
+    }
     return is_valid
 }
 
@@ -67,4 +69,15 @@ $(document).ready(function () {
     amount_error.hide()
     amount_invalid.hide()
 	add_button.click(addExpenseRecord);
+
+    name_input.on("change", function() {
+        name_error.hide()
+        name_input.removeClass("error")
+    })
+    
+    amount_input.on("change", function() {
+        amount_error.hide()
+        amount_invalid.hide()
+        amount_input.removeClass("error")
+    })
 });
