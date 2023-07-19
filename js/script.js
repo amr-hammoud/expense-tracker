@@ -12,6 +12,9 @@ const add_button = $("#add-expense");
 const name_error = $("#name-error");
 const amount_error = $("#amount-error");
 const amount_invalid = $("#amount-invalid");
+const total_amount_parent = $("#total-amount")
+const total_amount_text = $("#total-amount-value")
+let total_amount = 0
 
 function addExpenseRecord() {
     const name = name_input.val()
@@ -21,6 +24,9 @@ function addExpenseRecord() {
         const expense_record = $(expenseRecord(name,amount))
 
         expenses_container.append(expense_record)
+        total_amount += parseInt(amount)
+        total_amount_text.text(total_amount)
+        total_amount_parent.show()
         name_input.val("")
         amount_input.val("")
     }
@@ -64,10 +70,15 @@ function validate(name,amount){
     return is_valid
 }
 
+function calculateTotal(){
+    
+}
+
 $(document).ready(function () {
     name_error.hide()
     amount_error.hide()
     amount_invalid.hide()
+    total_amount_parent.hide()
 	add_button.click(addExpenseRecord);
 
     name_input.on("change", function() {
