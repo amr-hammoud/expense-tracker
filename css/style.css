@@ -213,3 +213,11 @@ tr td:nth-child(2)::after{
     content: "$";
     opacity: 0.7;
 }
+
+.error-text{
+    color: #ed4444;
+}
+
+.error {
+    border: 2px solid #ed4444 !important;
+}
