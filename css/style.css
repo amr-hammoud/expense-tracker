@@ -6,6 +6,15 @@
     padding: 0;
 }
 
+:root {
+    --emerald: rgba(29, 224, 153, 1);
+    --castleton-green: rgba(42, 97, 77, 1);
+    --onyx: rgba(55, 62, 64, 1);
+    --antiflash-white: rgba(238, 240, 242, 1);
+    --white: rgba(254, 252, 251, 1);
+    --primary-font: 'DM Sans', sans-serif;
+}
+
 html,
 body {
     height: 100%;
@@ -21,6 +30,8 @@ html:focus-within {
 body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    color: var(--onyx);
+    background-color: var(--white);
 }
 
 html,
@@ -29,8 +40,7 @@ body {
     margin: 0;
     width: 100%;
     height: 100%;
-    font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-        Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+    font-family: var(--primary-font)
 }
 
 img,
@@ -78,4 +88,69 @@ a {
     html:focus-within {
         scroll-behavior: auto;
     }
+}
+
+.container {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    width: 100%;
+    max-width: 1200px;
+}
+
+.main-title {
+    padding: 1rem;
+    font-size: 4rem;
+    color: var(--emerald);
+}
+
+.form-parent {
+    display: flex;
+    flex-flow: row nowrap;
+    padding: 1rem;
+    width: 100%;
+    max-width: 800px;
+}
+
+.form-group {
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    width: 100%;
+    padding: 10px 20px;
+    width: 100%;
+}
+
+.input {
+    padding: 0.5rem 1rem;
+    border: 2px solid var(--emerald);
+    border-radius: 0.3rem;
+    width: 100%;
+}
+
+.input::placeholder {
+    color: var(--onyx);
+    opacity: 0.5;
+}
+
+input:enabled {
+    border: 2px solid var(--emerald);
+}
+
+.label {
+    padding: 0.5rem 0;
+    font-size: 0.8rem;
+    font-weight: bold;
+}
+
+.add-button {
+    padding: 0.5rem;
+    margin-top: 2rem;
+    background-color: var(--emerald);
+    border: none;
+    border-radius: 0.3rem;
+    color: var(--antiflash-white);
+    font-weight: bold;
 }
