@@ -106,10 +106,23 @@ a {
     color: var(--emerald);
 }
 
+.expense-parent {
+    background-color: var(--antiflash-white);
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    width: 100%;
+    max-width: 850px;
+    border-radius: 0.5rem;
+    padding: 1rem;
+}
+
 .form-parent {
     display: flex;
     flex-flow: row nowrap;
-    padding: 1rem;
+    padding: 1rem 0;
     width: 100%;
     max-width: 800px;
 }
@@ -119,7 +132,7 @@ a {
     flex-flow: column;
     justify-content: center;
     width: 100%;
-    padding: 10px 20px;
+    padding: 1rem;
     width: 100%;
 }
 
@@ -153,4 +166,50 @@ input:enabled {
     border-radius: 0.3rem;
     color: var(--antiflash-white);
     font-weight: bold;
+}
+
+table {
+    border: 2px solid var(--emerald);
+    width: 100%;
+    max-width: 800px;
+    border-collapse: collapse;
+}
+
+th {
+    padding: 0.5rem;
+    background-color: var(--emerald);
+    color: var(--antiflash-white);
+    text-transform: uppercase;
+}
+
+.name-th {
+    width: 70%;
+    border-right: 1px solid var(--antiflash-white);
+}
+
+.amount-th {
+    width: 30%;
+}
+
+tbody tr, tfoot tr {
+    height: 2.5rem;
+    text-align: center;
+    border: 1px solid var(--emerald);
+}
+
+tbody td, tfoot td {
+    padding: 0.3rem;
+}
+
+
+tfoot tr{
+    height: 1rem;
+    font-weight: bold;
+    color: var(--antiflash-white);
+    background-color: var(--emerald);
+}
+
+tr td:nth-child(2)::after{
+    content: "$";
+    opacity: 0.7;
 }
